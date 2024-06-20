@@ -1,11 +1,26 @@
 import { useState } from "react";
+import { allHeroes } from "./HeroData";
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      {allHeroes.map((heroInfo, index) => {
+        return <HeroCard heroInfo={heroInfo} key={index} />;
+      })}
     </>
   );
 }
+
+const HeroCard = ({ heroInfo }) => {
+  return (
+    <>
+      <p>Hero: {heroInfo.hero}</p>
+      <div>
+        <p>Info: {heroInfo.info}</p>
+        <p>Villian: {heroInfo.villain}</p>
+      </div>
+    </>
+  );
+};
 
 export default App;
