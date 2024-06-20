@@ -1,42 +1,85 @@
-#root {
-  max-width: 1280px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.container {
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  padding: 20px;
 }
 
 .card {
-  padding: 2em;
+  background: #2a2a2a;
+  border-radius: 12px;
+  display: block;
+  height: auto;
+  margin: 1rem;
+  padding: 20px;
+  position: relative;
+  width: 300px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.3), 0 18px 15px rgba(0, 0, 0, 0.22);
+}
+
+.card h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #3c4f76;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  width: calc(100% - 40px);
+  margin: 0 auto 10px auto;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #8798ad;
+}
+
+.header,
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.header h1,
+.footer p {
+  margin: 0;
+}
+
+.hero-list,
+.favourites-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { allHeroes } from "./HeroData";
+import "./App.css";
 
 function App() {
   const [favourites, setFavourites] = useState([]);
@@ -18,57 +19,64 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="header">
+        <h1>Heroes</h1>
+      </div>
+      <div className="container">
         <h3>Favourites</h3>
-        {favourites.map((favHero, index) => {
-          return (
+        <div className="favourites-list">
+          {favourites.map((favHero, index) => (
             <Favourites
               key={index}
               favHeroData={favHero}
               removeFave={() => handleRemoveFromFavs(index)}
             />
-          );
-        })}
+          ))}
+        </div>
+        <h3>All Heroes</h3>
+        <div className="hero-list">
+          {allHeroes.map((heroInfo, index) => (
+            <HeroCard
+              heroInfo={heroInfo}
+              key={index}
+              favFunc={handleAddToFavs}
+            />
+          ))}
+        </div>
       </div>
-      <h3>All Heroes</h3>
-      {allHeroes.map((heroInfo, index) => {
-        return (
-          <HeroCard heroInfo={heroInfo} key={index} favFunc={handleAddToFavs} />
-        );
-      })}
     </>
   );
 }
 
 const Favourites = ({ favHeroData, removeFave }) => {
   return (
-    <div>
+    <div className="card">
       <p>{favHeroData.hero}</p>
-      <button onClick={removeFave}>X</button>
+      <button className="btn" onClick={removeFave}>
+        Remove
+      </button>
     </div>
   );
 };
 
 const HeroCard = (props) => {
   const [show, setShow] = useState(false);
-  console.log(props);
   return (
-    <>
+    <div className="card">
       <p>Hero: {props.heroInfo.hero}</p>
-
       {show && (
         <div>
           <p>Info: {props.heroInfo.info}</p>
-          <p>Villian: {props.heroInfo.villain}</p>
+          <p>Villain: {props.heroInfo.villain}</p>
         </div>
       )}
-      <button onClick={() => setShow(!show)}>
+      <button className="btn" onClick={() => setShow(!show)}>
         {show ? "Hide Info" : "Show Info"}
       </button>
-      <button onClick={() => props.favFunc(props.heroInfo)}>
+      <button className="btn" onClick={() => props.favFunc(props.heroInfo)}>
         Add to Favourites
       </button>
-    </>
+    </div>
   );
 };
 
